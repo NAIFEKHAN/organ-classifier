@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://boolean-solution-indices-rolled.trycloudflare.com";
+const API_BASE_URL = "https://organ-classifier-api.onrender.com";
 
 const viewport = document.getElementById("viewport");
 const fileInput = document.getElementById("fileInput");
