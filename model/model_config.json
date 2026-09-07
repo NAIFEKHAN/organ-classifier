@@ -1,0 +1,11 @@
+{
+  "img_size": 224,
+  "class_names": [
+    "brain",
+    "heart",
+    "kidney",
+    "liver",
+    "lungs",
+    "pancreas"
+  ]
+}

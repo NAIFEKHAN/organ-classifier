@@ -1,0 +1,14 @@
+Overall test accuracy: 100.00%
+
+              precision    recall  f1-score   support
+
+       brain      1.000     1.000     1.000        15
+       heart      1.000     1.000     1.000        15
+      kidney      1.000     1.000     1.000        15
+       liver      1.000     1.000     1.000        15
+       lungs      1.000     1.000     1.000        15
+    pancreas      1.000     1.000     1.000        15
+
+    accuracy                          1.000        90
+   macro avg      1.000     1.000     1.000        90
+weighted avg      1.000     1.000     1.000        90

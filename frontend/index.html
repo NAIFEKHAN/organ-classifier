@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Organ Scan Classifier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">ORGAN&nbsp;SCAN&nbsp;CLASSIFIER</span>
+    </div>
+    <div class="status-pill" id="statusPill" data-state="idle">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="statusText">READY</span>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <section class="viewer-panel" aria-label="Image upload and preview">
+      <div class="panel-label">SCAN&nbsp;INPUT</div>
+
+      <div class="viewport" id="viewport" data-empty="true">
+        <span class="bracket bracket-tl" aria-hidden="true"></span>
+        <span class="bracket bracket-tr" aria-hidden="true"></span>
+        <span class="bracket bracket-bl" aria-hidden="true"></span>
+        <span class="bracket bracket-br" aria-hidden="true"></span>
+
+        <div class="sweep" id="sweep" aria-hidden="true"></div>
+
+        <img id="previewImage" class="preview-image" alt="" hidden />
+
+        <div class="dropzone-content" id="dropzoneContent">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <path d="M12 16V4M12 4L7 9M12 4l5 5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="dz-primary">Drop a scan image here</p>
+          <p class="dz-secondary">or click to browse — PNG / JPEG</p>
+        </div>
+
+        <label class="visually-hidden" for="fileInput">Upload a scan image</label>
+        <input type="file" id="fileInput" accept="image/png, image/jpeg" />
+      </div>
+
+      <div class="viewer-meta" aria-hidden="true">
+        <span id="fileMeta">NO FILE LOADED</span>
+        <span id="modalityMeta">MODALITY: AUTO</span>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" id="clearBtn" type="button" disabled>Clear</button>
+        <button class="btn btn-primary" id="analyzeBtn" type="button" disabled>Analyze scan</button>
+      </div>
+
+      <p class="error-message" id="errorMessage" role="alert" hidden></p>
+    </section>
+
+    <section class="result-panel" aria-label="Classification result" aria-live="polite">
+      <div class="panel-label">RESULT&nbsp;READOUT</div>
+
+      <div class="result-empty" id="resultEmpty">
+        <p>Upload a scan and run analysis to see the predicted organ here.</p>
+      </div>
+
+      <div class="result-body" id="resultBody" hidden>
+        <div class="predicted-block">
+          <span class="predicted-label">PREDICTED ORGAN</span>
+          <span class="predicted-name" id="predictedName">—</span>
+          <span class="predicted-confidence" id="predictedConfidence">—</span>
+        </div>
+
+        <div class="probability-list" id="probabilityList"></div>
+
+        <p class="disclaimer">For educational / project demonstration purposes only — not a diagnostic tool.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footnote">
+    Backend endpoint:
+    <code id="endpointLabel">http://localhost:8000/predict</code>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

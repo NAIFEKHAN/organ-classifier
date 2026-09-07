@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# Datasets - not needed for deployment
+data/raw/
+data/processed/
+
+# Kaggle credentials
+.kaggle/
+kaggle.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
