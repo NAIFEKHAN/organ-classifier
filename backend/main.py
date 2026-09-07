@@ -92,17 +92,17 @@ async def predict(file: UploadFile = File(...)):
     confidence = float(predictions[top_idx]) * 100
 
     if confidence < 80:
-    return {
-        "prediction": "Unknown / Not a medical scan",
-        "confidence": confidence,
-        "all_probabilities": [
-            {
-                "organ": class_names[i],
-                "confidence": float(predictions[i]) * 100
-            }
-            for i in range(len(class_names))
-        ]
-    }
+        return {
+            "prediction": "Unknown / Not a medical scan",
+            "confidence": confidence,
+            "all_probabilities": [
+                {
+                    "organ": class_names[i],
+                    "confidence": float(predictions[i]) * 100
+                }
+                for i in range(len(class_names))
+            ]
+        }
 
     all_probs = sorted(
         [{"organ": class_names[i], "confidence": round(float(p) * 100, 2)}
